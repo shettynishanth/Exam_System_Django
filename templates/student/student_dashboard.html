@@ -1,0 +1,125 @@
+{% extends 'student/studentbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style type="text/css">
+      a:link {
+        text-decoration: none;
+      }
+
+      /* Card Design */
+      .order-card {
+        color: rgb(255, 255, 255);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      }
+
+      .order-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .bg-c-blue {
+        background: linear-gradient(135deg, #04868f, #04677b);
+      }
+
+      .bg-c-yellow {
+        background: linear-gradient(135deg, #F56565, #e72c2c);
+      }
+
+      .card .card-block {
+        padding: 25px;
+        text-align: center;
+      }
+
+      .order-card i {
+        font-size: 36px;
+        margin-right: 10px;
+      }
+
+      .order-card h2 {
+        font-size: 32px;
+        font-weight: bold;
+      }
+
+      .row {
+        margin-top: 30px;
+      }
+
+      .col-xl-6 {
+        margin-bottom: 30px;
+      }
+
+      /* Tooltip Styling */
+      .tooltip-inner {
+        background-color: #333;
+        color: #fff;
+      }
+
+      /* Small Screen Adjustments */
+      @media (max-width: 768px) {
+        .order-card i {
+          font-size: 28px;
+        }
+
+        .order-card h2 {
+          font-size: 24px;
+        }
+      }
+    </style>
+</head>
+
+<br><br>
+
+<div class="container">
+  <div class="row">
+
+    <!-- Available Exams Card -->
+    <div class="col-md-4 col-xl-6">
+      <div class="card bg-c-blue order-card" data-toggle="tooltip" data-placement="top" title="Total available exams for you">
+        <div class="card-block">
+          <h6 class="m-b-20">Available Exams</h6>
+          <h2 class="text-right">
+            <i class="fas fa-book f-left"></i>
+            <span>{{total_course}}</span>
+          </h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Total Questions Card -->
+    <div class="col-md-4 col-xl-6">
+      <div class="card bg-c-yellow order-card" data-toggle="tooltip" data-placement="top" title="Total number of questions you will encounter">
+        <div class="card-block">
+          <h6 class="m-b-20">Total Questions</h6>
+          <h2 class="text-right">
+            <i class="fas fa-question-circle f-left"></i>
+            <span>{{total_question}}</span>
+          </h2>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Footer for Extra Space -->
+<br><br><br><br><br><br><br><br><br><br>
+
+<script src="http://netdna.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script>
+  // Enable Tooltips
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+</script>
+
+{% endblock content %}
